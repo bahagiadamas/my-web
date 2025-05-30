@@ -1,7 +1,7 @@
 {
   "name": "my-react-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,10 +11,14 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.8",
+    "autoprefixer": "^10.4.21",
     "daisyui": "^5.0.42",
+    "firebase": "^11.8.1",
+    "postcss": "^8.5.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
+    "react-icons": "^5.5.0",
     "react-quill-new": "^3.4.6",
     "react-router-dom": "^7.6.1",
     "scrollreveal": "^4.0.9",
@@ -30,6 +34,11 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "stylelint": "^16.20.0",
+    "stylelint-config-recess-order": "^6.0.0",
+    "stylelint-config-standard": "^38.0.0",
     "vite": "^6.3.5"
   }
 }
