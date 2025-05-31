@@ -22,7 +22,7 @@ export default function FeatureSection() {
             asperiores unde officiis, suscipit magnam illum ipsum consequatur
             quam amet consectetur? Dicta at ea voluptas dolorum.
           </p>
-          <Link>
+          <Link to="/projects">
             <button className="btn btn-outline btn-primary btn-lg my-3">
               Explore Projects
             </button>
@@ -30,7 +30,7 @@ export default function FeatureSection() {
         </div>
 
         <Swiper
-          className="my-4 !px-2 !py-2"
+          className="!px-2 !py-10"
           modules={[Autoplay, Pagination]}
           loop={true}
           speed={2000}
@@ -80,9 +80,9 @@ export default function FeatureSection() {
             !loading &&
             projects.length > 0 &&
             projects.map((project) => (
-              <SwiperSlide key={project.id}>
-                <Link className="relative">
-                  <div className="img-wrapper relative h-full w-full overflow-hidden rounded-xl">
+              <SwiperSlide key={project.id} className="rounded-xl shadow-xl">
+                <Link className="@container/feature relative">
+                  <div className="img-wrapper before:bg-base-content/65 relative h-full w-full overflow-hidden rounded-xl">
                     <img
                       src={project.imgUrl}
                       alt={project.title}
@@ -90,7 +90,9 @@ export default function FeatureSection() {
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <h4 className="absolute">{project.title}</h4>
+                  <h4 className="text-base-200 @0/feature:text-c3 absolute top-1/2 -translate-y-1/2 p-1 text-center">
+                    {project.title}
+                  </h4>
                 </Link>
               </SwiperSlide>
             ))}

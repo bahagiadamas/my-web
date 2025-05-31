@@ -1,23 +1,33 @@
 import { Helmet } from "react-helmet-async";
-import banner from "../../assets/img/BANNER1.jpeg";
-import about from "../../assets/img/Damas.png";
+
 import {
   IoLaptopOutline,
   IoLogoGithub,
   IoLogoLinkedin,
   IoMail,
 } from "react-icons/io5";
+
+import useScaler from "../../hooks/useScaler";
+
+import banner from "../../assets/img/BANNER1.jpeg";
+import about from "../../assets/img/Damas.png";
+
 import Container from "../../components/Container";
 import FeatureSection from "../../components/FeatureSection";
+import ContactSection from "../../components/ContactSection";
 
 export default function Home() {
+  const { scaleRef } = useScaler();
   return (
     <>
       <Helmet>
         <title>D B I CIPTA | HOME</title>
       </Helmet>
-      <section id="hero" className="relative h-[100vh]">
-        <div className="banner-wrapper before:bg-base-content/50 before:backdrop-blur-scale relative h-full w-full">
+      <section id="hero" className="relative h-[100vh] overflow-hidden">
+        <div
+          className="banner-wrapper before:bg-base-content/50 before:backdrop-blur-scale relative h-full w-full"
+          ref={scaleRef}
+        >
           <img
             src={banner}
             alt="Damas Bahagia Ika Cipta"
@@ -39,7 +49,7 @@ export default function Home() {
               reiciendis nobis et ullam commodi est? Nulla deserunt iste sunt
               blanditiis eos odio consectetur minus reiciendis?
             </p>
-            <div className="social-icons *:p-xs *:bg-base-300 *:hover:outline-accent *:hover:text-accent my-3 flex gap-6 *:block *:h-[var(--text-4)] *:w-[var(--text-4)] *:rounded-full *:outline-2 *:transition-all *:duration-300">
+            <div className="social-icons *:p-xs *:hover:outline-accent *:hover:text-accent my-3 flex gap-6 *:block *:h-[var(--text-4)] *:w-[var(--text-4)] *:rounded-full *:bg-transparent *:outline-2 *:transition-all *:duration-300">
               <a href="">
                 <IoMail className="icon h-full w-full" />
               </a>
@@ -108,7 +118,8 @@ export default function Home() {
         </Container>
       </section>
 
-      <FeatureSection></FeatureSection>
+      <FeatureSection />
+      <ContactSection />
     </>
   );
 }

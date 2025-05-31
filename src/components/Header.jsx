@@ -17,7 +17,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-slate-100 shadow-md">
+    <header className="bg-base-200 shadow-md">
       <Container>
         <Link to="/" className="logo">
           <img src={logo} alt="Logo" className="max-h-16 p-2" />
