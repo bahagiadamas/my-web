@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useProjects } from "../../contexts/ProjectContext";
 import Container from "../../components/Container";
+import { Helmet } from "react-helmet-async";
 
 export default function EditProject() {
   const { id } = useParams();
@@ -140,20 +141,39 @@ export default function EditProject() {
     <section id="edit-project" className="relative min-h-[100vh] py-4">
       <Container>
         {initialLoading ? (
-          <div className="loading-container absolute inset-0 flex items-center justify-center">
-            <span className="loading loading-dots loading-xl text-primary"></span>
-          </div>
+          <>
+            <Helmet>
+              <title>Edit Project | Loading...</title>
+            </Helmet>
+            <div className="loading-container absolute inset-0 flex items-center justify-center">
+              <span className="loading loading-dots loading-xl text-primary"></span>
+            </div>
+          </>
         ) : fetchError ? (
-          <p className="text-error-content p-[50px] text-center">
-            Something went wrong: {fetchError}
-          </p>
+          <>
+            <title>Edit Project | {fetchError}</title>
+            <p className="text-error-content p-[50px] text-center">
+              Something went wrong: {fetchError}
+            </p>
+          </>
         ) : !currentImgUrl && !title && !desc && !body ? (
-          <p className="texr-error-content p-[50px] text-center">
-            {" "}
-            Project with project id "{id}" not found.{" "}
-          </p>
+          <>
+            <Helmet>
+              <title>Edit Project | Project not found.</title>
+            </Helmet>
+            <p className="texr-error-content p-[50px] text-center">
+              Project with project id "{id}" not found.
+            </p>
+          </>
         ) : (
           <>
+            <Helmet>
+              <title>Edit Project | {title}</title>
+              <meta
+                name="description"
+                content="Update an existing portfolio project using the admin dashboard. Modify the title, description, body, and image."
+              />
+            </Helmet>
             <h2>Edit Project | {id}</h2>
             <form className="max-w-[min(100%,600px)]" onSubmit={handleSubmit}>
               {currentImgUrl && !imageFile && (

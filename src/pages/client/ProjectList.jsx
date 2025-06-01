@@ -5,10 +5,13 @@ import SearchBar from "../../components/SearchBar";
 import { useProjects } from "../../contexts/ProjectContext";
 import { useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
+import useScrollReveal from "../../hooks/useScrollReveal";
+useScrollReveal;
 
 export default function ProjectList() {
   const { projects, loading, error } = useProjects();
   const [searchTerm, setSearchTerm] = useState("");
+  useScrollReveal(!loading);
 
   const filteredProjects = useMemo(() => {
     if (!searchTerm) {
@@ -29,13 +32,22 @@ export default function ProjectList() {
     <>
       <Helmet>
         <title>D B I CIPTA | Projects</title>
+        <meta
+          name="description"
+          content="Browse a collection of technical projects by Damas Bahagia Ika Cipta, including this web apps and more."
+        />
+        <meta
+          name="keywords"
+          content="projects, web development, design, portfolio, case studies, Damas Bahagia"
+        />
+        <meta name="author" content="Damas Bahagia Ika Cipta" />
       </Helmet>
 
       <section id="project-list">
         <Container>
           <div className="section-heading my-3 flex flex-col items-center lg:flex-row">
             <h2 className="section-title mb-3 text-center lg:text-left">
-              Projects
+              Showcase of Works & Initiatives
             </h2>
             <SearchBar
               onSearch={handleSearch}
@@ -76,7 +88,7 @@ export default function ProjectList() {
               filteredProjects.length > 0 &&
               filteredProjects.map((project) => (
                 <div
-                  className="card bg-base-100 @container/project shadow-lg"
+                  className="card bg-base-100 popup-up @container/project shadow-lg"
                   key={project.id}
                 >
                   <figure>
@@ -101,7 +113,7 @@ export default function ProjectList() {
             {!loading && !error && filteredProjects.length === 0 && (
               <>
                 {searchTerm ? (
-                  <p className="text-info-content text-center">
+                  <p className="text-center">
                     No projects found for "{searchTerm}".
                   </p>
                 ) : (

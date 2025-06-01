@@ -87,7 +87,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-16">
+    <section id="contact" className="py-18">
       <Container className="grid max-w-[min(95%,850px)] grid-cols-1 gap-4">
         <div className="section-heading popup">
           <h2 className="popup-up">Let's Connect</h2>

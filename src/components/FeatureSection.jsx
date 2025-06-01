@@ -13,24 +13,27 @@ export default function FeatureSection() {
   const { projects, loading, error } = useProjects();
 
   return (
-    <section id="feature">
+    <section id="feature" className="py-18">
       <Container>
         <div className="section-heading">
-          <h2 className="section-title">Feature</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
-            asperiores unde officiis, suscipit magnam illum ipsum consequatur
-            quam amet consectetur? Dicta at ea voluptas dolorum.
+          <h2 className="section-title popup-up">
+            Showcase of Works & Initiatives
+          </h2>
+          <p className="popup-up max-w-[min(100%,80ch)]">
+            Here are some of the projects I’ve contributed to — each
+            highlighting problem-solving, creativity, and practical impact.
+            These experiences reflect my approach to delivering meaningful
+            solutions in various contexts.
           </p>
           <Link to="/projects">
-            <button className="btn btn-outline btn-primary btn-lg my-3">
-              Explore Projects
+            <button className="btn btn-outline btn-primary btn-lg popup-up my-3">
+              View All Projects
             </button>
           </Link>
         </div>
 
         <Swiper
-          className="!px-2 !py-10"
+          className="popup-up !px-2 !py-10"
           modules={[Autoplay, Pagination]}
           loop={true}
           speed={2000}
@@ -82,7 +85,7 @@ export default function FeatureSection() {
             projects.map((project) => (
               <SwiperSlide key={project.id} className="rounded-xl shadow-xl">
                 <Link className="@container/feature relative">
-                  <div className="img-wrapper before:bg-base-content/65 relative h-full w-full overflow-hidden rounded-xl">
+                  <div className="img-wrapper relative h-full w-full overflow-hidden rounded-xl before:bg-black/65">
                     <img
                       src={project.imgUrl}
                       alt={project.title}
@@ -90,7 +93,7 @@ export default function FeatureSection() {
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <h4 className="text-base-200 @0/feature:text-c3 absolute top-1/2 -translate-y-1/2 p-1 text-center">
+                  <h4 className="text-primary-content @0/feature:text-c3 absolute top-1/2 -translate-y-1/2 p-1 text-center">
                     {project.title}
                   </h4>
                 </Link>

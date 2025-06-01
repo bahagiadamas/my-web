@@ -1,11 +1,14 @@
 import { IoMenu } from "react-icons/io5";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Container from "./Container";
 import Overlay from "./Overlay";
 import logo from "../assets/img/logo.png";
+import ThemeController from "./ThemeController";
 
 export default function Header() {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -15,6 +18,18 @@ export default function Header() {
   const closeMenu = () => {
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    if (location.hash) {
+      const timer = setTimeout(() => {
+        const element = document.getElementById(location.hash.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [location]);
 
   return (
     <header className="bg-base-200 shadow-md">
@@ -30,18 +45,24 @@ export default function Header() {
           />
         </div>
         <nav id="navbar" className={`${isOpen ? "open" : ""}`}>
-          <a href="#" onClick={closeMenu}>
+          <a href="/#hero" onClick={closeMenu}>
             Home
           </a>
-          <a href="#" onClick={closeMenu}>
+          <a href="/#about" onClick={closeMenu}>
             About
           </a>
-          <a href="#" onClick={closeMenu}>
+          <a href="/#feature" onClick={closeMenu}>
             Projects
           </a>
-          <a href="#" onClick={closeMenu}>
+          <a href="/#contact" onClick={closeMenu}>
             Contact
           </a>
+          <div
+            className="tooltip tooltip-bottom tooltip-primary"
+            data-tip="Switch Theme"
+          >
+            <ThemeController />
+          </div>
         </nav>
         <Overlay className="inset-[4rem_0_0_0]" onClick={closeMenu} />
       </Container>

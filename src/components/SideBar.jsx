@@ -1,4 +1,5 @@
 import logo from "../assets/img/logo.png";
+import ThemeController from "./ThemeController";
 import { IoContrast, IoFolder, IoHome, IoMenu } from "react-icons/io5";
 import Overlay from "./Overlay";
 import { useState } from "react";
@@ -45,6 +46,7 @@ export default function SideBar() {
             <div className="theme-toggler">
               <IoContrast className="icon" />
               <span className="text text-0">Theme</span>
+              <ThemeController />
             </div>
           </li>
         </ul>

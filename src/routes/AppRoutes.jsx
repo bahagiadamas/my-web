@@ -14,7 +14,7 @@ import PrivateLayout from "../layouts/PrivateLayout";
 // PAGES
 import Home from "../pages/client/Home";
 import ProjectList from "../pages/client/ProjectList";
-import ProjectDetail from "../pages/client/ProjetDetail";
+import ProjectDetail from "../pages/client/ProjectDetail";
 import SignIn from "../pages/client/SignIn";
 import AdminPage from "../pages/admin/Admin";
 import NewProject from "../pages/admin/NewProject";

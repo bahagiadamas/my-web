@@ -116,6 +116,10 @@ export default function AdminPage() {
     <>
       <Helmet>
         <title>D B I CIPTA | Admin Page</title>
+        <meta
+          name="description"
+          content="Access the admin dashboard to manage your portfolio projects. Create, edit, and organize your work efficiently."
+        />
       </Helmet>
       <section id="admin-page" className="min-h-[100vh] py-16 lg:py-4">
         <Container>
@@ -222,10 +226,7 @@ export default function AdminPage() {
                     <>
                       {searchTerm ? (
                         <tr>
-                          <td
-                            colSpan="4"
-                            className="text-error-content text-center"
-                          >
+                          <td colSpan="4" className="text-center">
                             No projects match for "{searchTerm}".
                           </td>
                         </tr>

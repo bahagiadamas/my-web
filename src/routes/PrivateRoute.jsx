@@ -7,10 +7,10 @@ export default function PrivateRoute() {
 
   if (loading || isLoggingOut) {
     return (
-      <div className="loading-overlay bg-base-content/60 fixed inset-0">
+      <div className="loading-overlay bg-base-200 fixed inset-0">
         <Loading
           message={isLoggingOut ? "Logging out..." : "Checking admin access..."}
-          className="text-base-100 fixed top-1/2 left-1/2 -translate-1/2"
+          className="text-base-content fixed top-1/2 left-1/2 -translate-1/2"
         />
       </div>
     );

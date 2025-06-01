@@ -112,6 +112,10 @@ export default function NewProject() {
     <>
       <Helmet>
         <title>D B I CIPTA | Create New Project</title>
+        <meta
+          name="description"
+          content="Use the admin dashboard to create and publish a new portfolio project, including images, descriptions, and detailed content."
+        />
       </Helmet>
       <section id="new-project" className="min-h-[100vh] py-4">
         <Container>
